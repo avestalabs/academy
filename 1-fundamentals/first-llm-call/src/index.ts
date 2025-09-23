@@ -12,14 +12,22 @@ if (!apiKey) {
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
-async function testConnection() {
+async function makeFirstCall() {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-    console.log("✅ Gemini setup successful!");
-    console.log("Model loaded:", model);
+
+    const prompt = "What is TypeScript in one sentence?";
+
+    console.log("🤖 Sending prompt:", prompt);
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+
+    console.log("✅ AI Response:", text);
   } catch (error) {
-    console.error("❌ Setup failed:", error);
+    console.error("❌ Error making LLM call:", error);
   }
 }
 
-testConnection();
+makeFirstCall();
