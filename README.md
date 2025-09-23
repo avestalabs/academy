@@ -1,6 +1,6 @@
 # 🚀 Academy - JavaScript to AI Engineer
 
-**Avesta AI Academy** is an open-source learning platform designed to help JavaScript developers transition into AI engineering. This repository contains comprehensive course materials, hands-on code examples, and progressive projects to master the fundamentals of AI engineering.
+**AvestaLabs Academy** is an open-source learning platform designed to help JavaScript developers transition into AI engineering. This repository contains comprehensive course materials, hands-on code examples, and progressive projects to master the fundamentals of AI engineering.
 
 ## 📚 Course Overview
 
