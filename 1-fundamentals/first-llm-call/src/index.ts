@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -10,21 +10,20 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const genAI = new GoogleGenerativeAI(apiKey);
+const genAI = new GoogleGenAI({ apiKey });
 
 async function makeFirstCall() {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
     const prompt = "What is TypeScript in one sentence?";
 
     console.log("🤖 Sending prompt:", prompt);
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const response = await genAI.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+    });
 
-    console.log("✅ AI Response:", text);
+    console.log("✅ AI Response:", response.text);
   } catch (error) {
     console.error("❌ Error making LLM call:", error);
   }
