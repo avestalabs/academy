@@ -1,5 +1,5 @@
 {
-  "name": "gemini-setup",
+  "name": "understanding-tokens-and-costs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
+    "@google/genai": "^1.20.0",
     "@types/dotenv": "^8.2.3",
     "@types/node": "^24.5.2",
     "dotenv": "^17.2.2",

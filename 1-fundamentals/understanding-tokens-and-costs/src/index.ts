@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -9,30 +9,28 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const genAI = new GoogleGenerativeAI(apiKey);
+const genAI = new GoogleGenAI({ apiKey });
 
 async function trackTokenUsage(prompt: string) {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
+    const response = await genAI.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+    });
 
     console.log("📝 Prompt:", prompt);
-    console.log("🤖 Response:", response.text());
+    console.log("🤖 Response:", response.text);
     console.log("\n📊 Token Usage:");
+    console.log("  Input tokens:", response.usageMetadata?.promptTokenCount);
     console.log(
-      "  Input tokens:",
-      result.response.usageMetadata?.promptTokenCount
+      "  Thoughts tokens:",
+      response.usageMetadata?.thoughtsTokenCount
     );
     console.log(
       "  Output tokens:",
-      result.response.usageMetadata?.candidatesTokenCount
+      response.usageMetadata?.candidatesTokenCount
     );
-    console.log(
-      "  Total tokens:",
-      result.response.usageMetadata?.totalTokenCount
-    );
+    console.log("  Total tokens:", response.usageMetadata?.totalTokenCount);
   } catch (error) {
     console.error("Error:", error);
   }
