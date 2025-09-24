@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -10,11 +10,13 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const genAI = new GoogleGenerativeAI(apiKey);
+const genAI = new GoogleGenAI({ apiKey });
 
 async function testConnection() {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = await genAI.models.get({
+      model: "gemini-2.5-flash",
+    });
     console.log("✅ Gemini setup successful!");
     console.log("Model loaded:", model);
   } catch (error) {
