@@ -42,7 +42,7 @@ async function chat(userMessage: string): Promise<string> {
 
   // Send to AI using the same method as tutorial 2.1
   const response = await genAI.models.generateContent({
-    model: "gemini-2.0-flash-exp",
+    model: "gemini-2.5-flash",
     contents: conversationPrompt,
   });
 
