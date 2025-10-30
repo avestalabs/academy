@@ -1,0 +1,12 @@
+Debugging TypeScript Applications
+
+1. Use console.log() for quick debugging
+2. Set breakpoints in VS Code debugger
+3. Use the TypeScript compiler error messages
+4. Enable source maps for better debugging experience
+5. Use the browser developer tools for web applications
+
+Common debugging techniques:
+- Add debugger; statements in your code
+- Use console.table() for objects
+- Enable strict mode for better error detection

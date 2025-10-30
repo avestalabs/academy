@@ -1,0 +1,21 @@
+{
+  "name": "vector-storage-similarity-search",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@types/node": "^24.9.2",
+    "@types/pg": "^8.15.6",
+    "dotenv": "^17.2.3",
+    "pg": "^8.16.3",
+    "tsx": "^4.20.6"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

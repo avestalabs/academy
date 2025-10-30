@@ -1,0 +1,22 @@
+{
+  "name": "TypeScript Project",
+  "description": "A sample TypeScript project with configuration examples",
+  "dependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^18.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "jest"
+  },
+  "tsconfig": {
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "commonjs",
+      "strict": true,
+      "sourceMap": true
+    }
+  },
+  "tips": "Always use strict mode for better type checking and error detection in TypeScript projects."
+}
